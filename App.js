@@ -1,20 +1,55 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import Eligibility from "./screens/Eligibility";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  
+       <View style={{backgroundColor: 'rgba(0, 191, 166, 1)', flex: 1 }}>
+       <View style={styles.ellipseTop}></View>
+       <View style={styles.ellipseBottom}></View>
+        <Eligibility/>
+        
+       </View>
+    
+       
+    
   );
 }
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  background:{
+    flex:1,
     alignItems: 'center',
     justifyContent: 'center',
+    width:"100%",
+    height:"100%",
+  },
+
+  container: {
+    backgroundColor: 'rgba(0, 191, 166, 1)',
+  },
+
+  ellipseTop: {
+      
+    position: 'absolute',
+        bottom: 600,
+        right: 215,
+        backgroundColor: 'rgba(40, 101, 94, 1)', 
+        width: 263,
+        height: 235,
+        borderRadius: 135,
+
+  },
+
+  ellipseBottom: {
+        position: 'absolute',
+        top: 600,
+        left: 215,
+        backgroundColor: 'rgba(40, 101, 94, 1)', 
+        width: 263,
+        height: 235,
+        borderRadius: 135,
+        
   },
 });
