@@ -1,7 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button, TextInput, Alert, Pressable } from "react-native";
+import { useFonts } from 'expo-font';
+
 
 function InputText(props) {
+
+  const [loaded] = useFonts({
+     MontserratSemiBold: require('../assets/fonts/Montserrat-SemiBold.ttf'),
+   });
+   
+   if(!loaded){
+     return null; 
+   }
+
   return (
     <View>
         <TextInput
@@ -26,7 +37,7 @@ const styles= StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 7,
         borderRadius: 10,
-        fontFamily: "Montserrat_600SemiBold",
+        fontFamily: "MontserratSemiBold",
         fontSize: 20,
         alignItems: 'center',
         marginLeft: 5,
