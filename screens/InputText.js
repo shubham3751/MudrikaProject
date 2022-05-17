@@ -37,7 +37,7 @@ const styles= StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 7,
         borderRadius: 10,
-        fontFamily: "MontserratSemiBold",
+        fontFamily: "",
         fontSize: 20,
         alignItems: 'center',
         marginLeft: 5,

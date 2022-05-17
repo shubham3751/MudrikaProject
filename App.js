@@ -1,55 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import Eligibility from "./screens/Eligibility";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import BasicDetails from "./screens/BasicDetails";
+
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   return (
-  
-       <View style={{backgroundColor: 'rgba(0, 191, 166, 1)', flex: 1 }}>
-       <View style={styles.ellipseTop}></View>
-       <View style={styles.ellipseBottom}></View>
-        <Eligibility/>
-        
-       </View>
-    
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Eligibility">
        
-    
+          <Stack.Screen name="Eligibility" component={Eligibility} options={{headerShown: false}}/>
+          <Stack.Screen name="BasicDetails" component={BasicDetails} options={{headerShown: false}} />
+         
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 const styles = StyleSheet.create({
-  background:{
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width:"100%",
-    height:"100%",
-  },
 
-  container: {
-    backgroundColor: 'rgba(0, 191, 166, 1)',
-  },
-
-  ellipseTop: {
-      
-    position: 'absolute',
-        bottom: 600,
-        right: 215,
-        backgroundColor: 'rgba(40, 101, 94, 1)', 
-        width: 263,
-        height: 235,
-        borderRadius: 135,
-
-  },
-
-  ellipseBottom: {
-        position: 'absolute',
-        top: 600,
-        left: 215,
-        backgroundColor: 'rgba(40, 101, 94, 1)', 
-        width: 263,
-        height: 235,
-        borderRadius: 135,
-        
-  },
 });

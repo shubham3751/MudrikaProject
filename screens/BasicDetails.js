@@ -7,106 +7,62 @@ import {
   TextInput,
   Alert,
   Pressable,
+  TouchableOpacity
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import InputText from "./InputText";
 import { useFonts } from "expo-font";
-// import Axios from 'axios';
 
-function Eligibility({navigation}) {
-  const [loaded] = useFonts({
-    Montserrat: require("../assets/fonts/Montserrat-Regular.ttf"),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-
-  //  const [aadharNum, setaadharNum] = useState('');
-  //  const [phoneNum, setphoneNum] = useState('');
-  //  const [panNum, setpanNum] = useState('');
-
-  const phone = "Phone Number";
-  const pan = "Pan Number";
-  const aadhar = "Aadhaar Number";
-  const otp = "_ _ _ _ _ _";
-
-  // const submitUserData = () => {                   //have to go through this segment
-  //   Axios.post('http://localhost:3001', {
-  //     aadharNum: aadharNum,
-  //     phoneNum: phoneNum,
-  //     panNum: panNum,
-  //   }).then(() => {
-  //     console.log("insert successfully")
-  //   });
-  // };
-
-  
+const BasicDetails = ({navigation}) => {
+  const firstName = "First Name";
+  const lastName = "Last Name";
+  const DOB = "DD/MM/YYYY";
+  const gender = "Male";
+  const address = "Address";
+  const apartment = "Apartment";
+  const country = "Country";
+  const city = "City";
 
   return (
     <View style={styles.mainContainer}>
       <View style={styles.Group840}></View>
       <View>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Image
           style={styles.Vector}
-          source={{
+           source={{
             uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/qkctovngiom-175%3A9?alt=media&token=a09954de-cb61-4437-a991-896db8a2769e",
           }}
         />
+        </TouchableOpacity>
       </View>
-
-      {/* <View style={styles.EllipseTop} /> */}
       <View style={styles.EllipseBottom} />
-
       <View>
-        <Text style={styles.mainHeader}> Information</Text>
+        <Text style={styles.mainHeader}>Basic Details</Text>
       </View>
-
       <View style={styles.verticalBox}>
         <View style={styles.insideBox}>
-          <InputText entry={phone} />
-
-          <Text style={styles.description}>
-            Kindly enter phone number as menti- oned in Aadhaar Card.
-          </Text>
-          <InputText entry={pan} />
-          <InputText entry={aadhar} />
-
+          <InputText style={styles.inputText} entry={firstName} />
+          <InputText style={styles.inputText} entry={lastName} />
+          <InputText style={styles.inputText} entry={DOB} />
+          <InputText style={styles.inputText} entry={gender} />
+          <InputText style={styles.inputText} entry={address} />
+          <InputText style={styles.inputText} entry={apartment} />
+          <InputText style={styles.inputText} entry={country} />
+          <InputText style={styles.inputText} entry={city} />
           <Pressable
-            style={styles.button}
-            onPress={() => {
-              Alert.alert("Your OTP is _ _ _ _ _ _");
-            }}
-          >
-            <Text style={styles.text}>Get OTP</Text>
-          </Pressable>
-
-          <InputText entry={otp} />
-          <View style={styles.container}>
-            <Text style={styles.timerStyle}> 00:14 secs</Text>
-
-            <Pressable
-              style={styles.button2}
-              onPress={() => {
-                Alert.alert("OTP sent again!");
-              }}
-            >
-              <Text style={styles.resendStyle}>Resend OTP</Text>
-            </Pressable>
-          </View>
-
-          <Pressable
-            style={styles.button1}
-            onPress={() => navigation.navigate("BasicDetails")}>
+            style={styles.button1}>
             <Text style={styles.text}>Proceed</Text>
           </Pressable>
         </View>
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
+
+
   Group840: {
     position: "absolute",
     bottom: 590,
@@ -215,7 +171,7 @@ const styles = StyleSheet.create({
   },
 
   button1: {
-    marginTop: 90,
+    marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -259,4 +215,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Eligibility;
+export default BasicDetails;

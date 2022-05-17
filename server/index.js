@@ -10,7 +10,7 @@ const db = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "password",
-  database: "userdatabase",
+  database: "mudrika",
 });
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,7 +41,7 @@ db.connect((err) => {
 app.get("/", (req,res) => {
 
     const sqlInsert =
-    "INSERT INTO kyc_table (BORROW_id, KYC_IMAGE, CUST_AADHAAR, CUST_PAN, KYC_SIGN,PAN_IMAGE, AADHAAR_FRONT, AADHAAR_BACK) VALUES (112, 'sfds.jpeg', '223425545', '874444515', 'sfg.jpeg', 'hggh.jpeg', 'vfgsdv.jpeg', 'dsbgffd.jpeg');";
+    "INSERT INTO kyc_table (BORROW_id, KYC_IMAGE, CUST_AADHAAR, CUST_PAN, KYC_SIGN,PAN_IMAGE, AADHAAR_FRONT, AADHAAR_BACK) VALUES (113, 'sfgds.jpeg', '223v425545', '874v444515', 'sfg.jpeg', 'hggh.jpeg', 'vfgsdv.jpeg', 'dsbgffd.jpeg');";
     db.query(sqlInsert, (err,result) => {
          res.send("Hey Stranger!");
     });
@@ -54,8 +54,6 @@ app.post('/api/insert', (req,res)=>{
 db.query("select * from mudrika.kyc_table", (err, result) => {
   console.warn("result", result);
 });
-
-
 
 app.listen(3001, () => {
   console.log("running on port 3001");
