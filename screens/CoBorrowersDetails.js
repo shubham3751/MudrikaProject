@@ -12,11 +12,11 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 
-const KYCDetails3 = ({navigation}) => {
+const CoBorrowersDetails = ({ navigation }) => {
   return (
-       <View style={styles.mainContainer}>
-       <View style={styles.Group840}/>
-       <TouchableOpacity
+    <View style={styles.mainContainer}>
+      <View style={styles.Group840} />
+      <TouchableOpacity
         onPress={() => {
           Alert.alert("WEEWEE");
         }}
@@ -28,58 +28,60 @@ const KYCDetails3 = ({navigation}) => {
           }}
         />
       </TouchableOpacity>
-       <View style={styles.EllipseBottom} />
+      <View style={styles.EllipseBottom} />
       <View>
-        <Text style={styles.mainHeader}>KYC Details</Text>
+        <Text style={styles.mainHeader}>Co-borrower's Details</Text>
       </View>
       <View style={styles.verticalBox}>
-          <View style={styles.insideBox}>
-              <TextInput
+        <View style={styles.insideBox}>
+          <Pressable style={styles.button}>
+            <Text style={styles.text}>Upload PAN Card</Text>
+          </Pressable>
+             <View style={styles.container}>
+               <View style={styles.Line1} />
+             <Text style={styles.description}>OR</Text>
+             <View style={styles.Line2} />
+             </View>
+             <TextInput
             style={styles.inputStyle}
-            placeholder={"_ _ _ _ _ _"}
+            placeholder={"PAN Number"}
             autoCapitalize="none"
             autoCorrect={false}
           />
-          <View style={styles.container}>
-            <Text style={styles.timerStyle}> 00:14 secs</Text>
-
-            <Pressable style={styles.button2}>
-              <Text style={styles.resendStyle}>Resend OTP</Text>
-            </Pressable>
-          </View>
-          <Pressable style={styles.button}>
-            <Text style={styles.text}>Get OTP</Text>
-          </Pressable>
+            <Pressable style={styles.button5}>
+          <Text style={styles.text}>Upload Aadhaar Card</Text>
+          <Text style={styles.text}>[Front Side]</Text>
+        </Pressable>
+        <Pressable style={styles.button5}>
+          <Text style={styles.text}>Upload Aadhaar Card</Text>
+          <Text style={styles.text}>[Back Side]</Text>
+        </Pressable>
+         <View style={styles.container}>
+               <View style={styles.Line1} />
+             <Text style={styles.description}>OR</Text>
+             <View style={styles.Line2} />
+             </View>
+              <TextInput
+            style={styles.inputStyle}
+            placeholder={"Aadhaar Number"}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
           <Pressable
             style={styles.button1}
-            onPress={() => navigation.navigate("CoBorrowersDetails")}
+            onPress={() => navigation.navigate("EmploymentDetails")}
           >
             <Text style={styles.text}>Proceed</Text>
           </Pressable>
           </View>
       </View>
-       </View>
-    
-  )
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  button3: {
-    marginTop: 95,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 10,
-    elevation: 3,
-    backgroundColor: "#28655e",
-    width: 260,
-    height: 60,
-    marginLeft: 5,
-    marginBottom: 30,
-  },
-  button1: {
-    marginTop: 165,
+    button5: {
+    marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -90,7 +92,42 @@ const styles = StyleSheet.create({
     width: 260,
     height: 65,
     marginLeft: 5,
-    marginBottom: -150,
+    marginBottom: 0,
+  },
+    Line2: {
+      marginRight: 10,
+      marginTop: 20,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "rgba(0,0,0,1)",
+    width: 105,
+    height: 1,
+    marginLeft: -150,
+  },
+
+  Line1: {
+      marginLeft: 10,
+      marginTop: 20,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderColor: "rgba(0,0,0,1)",
+    width: 105,
+    height: 1,
+    marginRight: -150,
+  },
+  button1: {
+    marginTop: 85,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: "#28655e",
+    width: 260,
+    height: 65,
+    marginLeft: 5,
+    marginBottom: -35,
   },
   inputStyle1: {
     backgroundColor: "rgba(213, 243, 245, 1)",
@@ -191,14 +228,14 @@ const styles = StyleSheet.create({
   },
 
   mainHeader: {
-    fontSize: 25,
+    fontSize: 23,
     textAlign: "center",
     color: "#fff",
     fontWeight: "bold",
     paddingTop: 15,
     paddingBottom: 15,
     // textTransform: "capitalize",
-    top: -10,
+    top: -6,
   },
 
   labels: {
@@ -211,7 +248,7 @@ const styles = StyleSheet.create({
   },
 
   description: {
-    fontSize: 15.2,
+    fontSize: 20,
     marginTop: 5,
     fontFamily: "",
     fontWeight: "bold",
@@ -219,10 +256,11 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     marginLeft: 18,
     width: 270,
+    marginRight: 80,
   },
 
   button: {
-    marginTop: 30,
+    marginTop: -25,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -244,6 +282,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
+      marginBottom: -30,
     width: 278,
     marginLeft: 4,
     flexDirection: "row",
@@ -266,7 +305,7 @@ const styles = StyleSheet.create({
   },
   description: {
     textAlign: "center",
-    fontSize: 16,
+    fontSize: 20,
     marginTop: 5,
     fontFamily: "",
     fontWeight: "bold",
@@ -276,4 +315,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default KYCDetails3
+export default CoBorrowersDetails;

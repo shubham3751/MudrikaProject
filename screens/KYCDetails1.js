@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  button2: {},
   Group840: {
     position: "absolute",
     bottom: 590,

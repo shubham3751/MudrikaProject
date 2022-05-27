@@ -11,12 +11,13 @@ import {
   useColorScheme,
 } from "react-native";
 import React, { useState, useEffect } from "react";
+import DropDownPicker from "react-native-dropdown-picker";
 
-const KYCDetails3 = ({navigation}) => {
+const EmploymentDetails = ({ navigation }) => {
   return (
-       <View style={styles.mainContainer}>
-       <View style={styles.Group840}/>
-       <TouchableOpacity
+    <View style={styles.mainContainer}>
+      <View style={styles.Group840}></View>
+      <TouchableOpacity
         onPress={() => {
           Alert.alert("WEEWEE");
         }}
@@ -28,106 +29,102 @@ const KYCDetails3 = ({navigation}) => {
           }}
         />
       </TouchableOpacity>
-       <View style={styles.EllipseBottom} />
+      <View style={styles.EllipseBottom} />
       <View>
-        <Text style={styles.mainHeader}>KYC Details</Text>
+        <Text style={styles.mainHeader}>Employment Details</Text>
       </View>
       <View style={styles.verticalBox}>
-          <View style={styles.insideBox}>
-              <TextInput
+        <View style={styles.insideBox}>
+          <TextInput
             style={styles.inputStyle}
-            placeholder={"_ _ _ _ _ _"}
+            placeholder={"Employment Type"}
             autoCapitalize="none"
             autoCorrect={false}
           />
-          <View style={styles.container}>
-            <Text style={styles.timerStyle}> 00:14 secs</Text>
-
-            <Pressable style={styles.button2}>
-              <Text style={styles.resendStyle}>Resend OTP</Text>
-            </Pressable>
-          </View>
+          <TextInput
+            style={styles.inputStyle}
+            placeholder={"Office/Business Name"}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <TextInput
+            style={styles.inputStyle}
+            placeholder={"Office/Business Address"}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <TextInput
+            style={styles.inputStyle}
+            placeholder={"Year of Experience"}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <TextInput
+            style={styles.inputStyle}
+            placeholder={"Salary/Income"}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
           <Pressable style={styles.button}>
-            <Text style={styles.text}>Get OTP</Text>
+            <Text style={styles.text}>Upload Payslip</Text>
+          </Pressable>
+
+          {/* <TextInput
+            style={styles.inputStyle2}
+            placeholder={"ID Verification"}
+            autoCapitalize="none"
+            autoCorrect={false}
+          /> */}
+
+          <DropDownPicker
+            items={[
+              { label: "Item 1", value: "item1" },
+              { label: "Item 2", value: "item2", selected: true },
+            ]}
+            dropDownStyle={{ marginTop: 2 }}
+            style={{
+              backgroundColor: "rgba(213, 243, 245, 1)",
+              borderWidth: 0,
+            }}
+            placeholderStyle={{
+              fontWeight: "bold",
+              textAlign: "center",
+              fontSize: 18,
+              marginLeft: 30,
+            }}
+            defaultNull
+            placeholder="ID Verification"
+            defaultIndex={1}
+            defaultValue="item2"
+            containerStyle={{
+              height: 50,
+              marginTop: -30,
+              marginBottom: -5,
+              width: 260,
+              borderWidth: 0,
+            }}
+            onChangeItem={(item) => console.log(item.label, item.value)}
+          />
+
+          <Pressable style={styles.button1}>
+            <Text style={styles.text}>Upload Bank Statement</Text>
+          </Pressable>
+          <Pressable style={styles.button2}>
+            <Text style={styles.text}>Upload ITR Document</Text>
           </Pressable>
           <Pressable
-            style={styles.button1}
-            onPress={() => navigation.navigate("CoBorrowersDetails")}
+            style={styles.button3}
+            onPress={() => navigation.navigate("CoBorrowersDetails1")}
           >
             <Text style={styles.text}>Proceed</Text>
           </Pressable>
-          </View>
+        </View>
       </View>
-       </View>
-    
-  )
-}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  button3: {
-    marginTop: 95,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 10,
-    elevation: 3,
-    backgroundColor: "#28655e",
-    width: 260,
-    height: 60,
-    marginLeft: 5,
-    marginBottom: 30,
-  },
-  button1: {
-    marginTop: 165,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 10,
-    elevation: 3,
-    backgroundColor: "#28655e",
-    width: 260,
-    height: 65,
-    marginLeft: 5,
-    marginBottom: -150,
-  },
-  inputStyle1: {
-    backgroundColor: "rgba(213, 243, 245, 1)",
-    width: 260,
-    height: 60,
-    marginTop: 40,
-    marginBottom: -20,
-    borderWidth: 0,
-    borderColor: "rgba(0, 0, 0, 0.3)",
-    paddingHorizontal: 20,
-    paddingVertical: 7,
-    borderRadius: 10,
-    fontFamily: "",
-    fontSize: 18,
-    alignItems: "center",
-    marginLeft: 5,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  inputStyle: {
-    backgroundColor: "rgba(213, 243, 245, 1)",
-    width: 260,
-    height: 60,
-    marginTop: 40,
-    borderWidth: 0,
-    borderColor: "rgba(0, 0, 0, 0.3)",
-    paddingHorizontal: 20,
-    paddingVertical: 7,
-    borderRadius: 10,
-    fontFamily: "",
-    fontSize: 18,
-    alignItems: "center",
-    marginLeft: 5,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  button2: {},
   Group840: {
     position: "absolute",
     bottom: 590,
@@ -136,6 +133,83 @@ const styles = StyleSheet.create({
     width: 263,
     height: 235,
     borderRadius: 135.5,
+  },
+  button3: {
+    marginTop: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: "#28655e",
+    width: 260,
+    height: 50,
+    marginLeft: 5,
+    marginBottom: 10,
+  },
+  button2: {
+    marginTop: -40,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: "#28655e",
+    width: 260,
+    height: 50,
+    marginLeft: 5,
+    marginBottom: 10,
+  },
+  inputStyle2: {
+    backgroundColor: "rgba(213, 243, 245, 1)",
+    width: 260,
+    height: 50,
+    marginTop: -30,
+    borderWidth: 0,
+    borderColor: "rgba(0, 0, 0, 0.3)",
+    paddingHorizontal: 20,
+    paddingVertical: 7,
+    borderRadius: 10,
+    fontFamily: "",
+    fontSize: 18,
+    alignItems: "center",
+    marginLeft: 5,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 0,
+  },
+  button1: {
+    marginTop: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: "#28655e",
+    width: 260,
+    height: 50,
+    marginLeft: 5,
+    marginBottom: 50,
+  },
+  inputStyle: {
+    backgroundColor: "rgba(213, 243, 245, 1)",
+    width: 260,
+    height: 50,
+    marginTop: 10,
+    borderWidth: 0,
+    borderColor: "rgba(0, 0, 0, 0.3)",
+    paddingHorizontal: 20,
+    paddingVertical: 7,
+    borderRadius: 10,
+    fontFamily: "",
+    fontSize: 18,
+    alignItems: "center",
+    marginLeft: 5,
+    fontWeight: "bold",
+    textAlign: "center",
   },
   Vector: {
     width: 25,
@@ -222,7 +296,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    marginTop: 30,
+    marginTop: 15,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -231,12 +305,13 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: "#28655e",
     width: 260,
-    height: 60,
+    height: 50,
     marginLeft: 5,
+    marginBottom: 40,
   },
 
   text: {
-    fontSize: 20,
+    fontSize: 18,
     lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,
@@ -276,4 +351,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default KYCDetails3
+export default EmploymentDetails;

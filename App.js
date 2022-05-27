@@ -10,6 +10,9 @@ import PersonalDetails1 from "./screens/PersonalDetails1";
 import KYCDetails1 from "./screens/KYCDetails1";
 import KYCDetails2 from "./screens/KYCDetails2";
 import KYCDetails3 from "./screens/KYCDetails3"
+import CoBorrowersDetails from "./screens/CoBorrowersDetails";
+import EmploymentDetails from "./screens/EmploymentDetails";
+import CoBorrowersDetails1 from "./screens/CoBorrowersDetails1";
 export default function App() {
   const Stack = createNativeStackNavigator();
 
@@ -49,6 +52,21 @@ export default function App() {
         <Stack.Screen
           name="KYCDetails3"
           component={KYCDetails3}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CoBorrowersDetails"
+          component={CoBorrowersDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="EmploymentDetails"
+          component={EmploymentDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CoBorrowersDetails1"
+          component={CoBorrowersDetails1}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
