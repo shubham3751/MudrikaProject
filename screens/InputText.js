@@ -20,6 +20,7 @@ function InputText(props) {
         placeholder={props.entry}
         autoCapitalize="none"
         autoCorrect={false}
+        // onChangeText = {(text) => props.onChangeText(text,props.field)}
       />
     </View>
   )
@@ -31,7 +32,7 @@ const styles= StyleSheet.create({
         backgroundColor: "rgba(213, 243, 245, 1)",
         width: 260,
         height: 60,
-        marginTop: 5,  
+        marginTop: 8,  
         borderWidth: 0,
         borderColor: "rgba(0, 0, 0, 0.3)",
         paddingHorizontal: 20,

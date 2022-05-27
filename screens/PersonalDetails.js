@@ -7,53 +7,96 @@ import {
   TextInput,
   Alert,
   Pressable,
-  TouchableOpacity
+  TouchableOpacity,
+  useColorScheme,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import InputText from "./InputText";
+import { ButtonGroup } from "@rneui/themed";
 import { useFonts } from "expo-font";
 
-const BasicDetails = ({navigation}) => {
-  const firstName = "First Name";
-  const lastName = "Last Name";
-  const DOB = "DD/MM/YYYY";
-  const gender = "Male";
-  const address = "Address";
-  const apartment = "Apartment";
-  const country = "Country";
-  const city = "City";
+const PersonalDetails = ({navigation}) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex1, setSelectedIndex1] = useState(0);
 
+  const firstName = "First Name";
+  const middleName = "Middle Name";
+  const lastName = "Last Name";
+  const alternateAddress = "Alternate Address";
+  const email = "Email Address";
+  const spouse = "Spouce Name";
   return (
     <View style={styles.mainContainer}>
       <View style={styles.Group840}></View>
-      <View>
-      <TouchableOpacity onPress={() => {Alert.alert("WEEWEE")}}>
+      <TouchableOpacity
+        onPress={() => {
+          Alert.alert("WEEWEE");
+        }}
+      >
         <Image
           style={styles.Vector}
-           source={{
+          source={{
             uri: "https://firebasestorage.googleapis.com/v0/b/unify-bc2ad.appspot.com/o/qkctovngiom-175%3A9?alt=media&token=a09954de-cb61-4437-a991-896db8a2769e",
           }}
         />
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
       <View style={styles.EllipseBottom} />
       <View>
-        <Text style={styles.mainHeader}>Basic Details</Text>
+        <Text style={styles.mainHeader}>Personal Details</Text>
       </View>
       <View style={styles.verticalBox}>
         <View style={styles.insideBox}>
           <InputText style={styles.inputText} entry={firstName} />
+          <InputText style={styles.inputText} entry={middleName} />
           <InputText style={styles.inputText} entry={lastName} />
-          <InputText style={styles.inputText} entry={DOB} />
-          <InputText style={styles.inputText} entry={gender} />
-          <InputText style={styles.inputText} entry={address} />
-          <InputText style={styles.inputText} entry={apartment} />
-          <InputText style={styles.inputText} entry={country} />
-          <InputText style={styles.inputText} entry={city} />
+          <InputText style={styles.inputText} entry={alternateAddress} />
+          <InputText style={styles.inputText} entry={email} />
+          {/* <InputText style={styles.inputText} entry={spouse} /> */}
+          <Text style={styles.description}>Martial Status</Text>
+          <ButtonGroup
+            buttons={["YES", "NO"]}
+            selectedIndex={selectedIndex}
+            onPress={(value) => {
+              setSelectedIndex(value);
+            }}
+            textStyle={{
+              fontSize: 17,
+              fontWeight: "bold",
+            }}
+            containerStyle={{
+              marginBottom: 2,
+              borderRadius: 10,
+              height: 55,
+              width: 260,
+            }}
+            buttonStyle={{color: "secondary"}}
+          />
+          <Text style={styles.description}>
+            Is there any other earning member?
+          </Text>
+          <ButtonGroup
+            buttons={["YES", "NO"]}
+            selectedIndex={selectedIndex1}
+            onPress={(value) => {
+              setSelectedIndex1(value);
+            }}
+            textStyle={{
+              fontSize: 17,
+              fontWeight: "bold",
+            }}
+            buttonStyle={styles.button2}
+            containerStyle={{
+              marginBottom: 20,
+              borderRadius: 10,
+              height: 55,
+              width: 260,
+            }}
+          />
           <Pressable
             style={styles.button1}
-            onPress={() => navigation.navigate("PersonalDetails")}>
-            <Text style={styles.text}>Proceed</Text>
+            onPress={() => navigation.navigate("PersonalDetails1")}
+          >
+            <Text style={styles.text}>Submit</Text>
           </Pressable>
         </View>
       </View>
@@ -62,8 +105,8 @@ const BasicDetails = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-
-
+    button2: {
+    },
   Group840: {
     position: "absolute",
     bottom: 590,
@@ -172,8 +215,7 @@ const styles = StyleSheet.create({
   },
 
   button1: {
-    marginTop: 15,
-    marginBottom: 8,
+    marginTop: -5,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -215,6 +257,16 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginRight: 10,
   },
+  description: {
+    textAlign: "center",
+    fontSize: 16,
+    marginTop: 5,
+    fontFamily: "",
+    fontWeight: "bold",
+    color: "rgba(0, 0, 0, 0.8)",
+    marginBottom: 4,
+    width: 270,
+  },
 });
 
-export default BasicDetails;
+export default PersonalDetails;

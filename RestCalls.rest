@@ -1,0 +1,18 @@
+POST http://localhost:3001
+content-type: application/json
+
+
+########################
+
+POST https://2factor.in/API/V1/35284789-67b1-11ec-b710-0200cd936042/SMS/1234567890/AUTOGEN
+content-type: application/json
+
+
+########################
+
+POST http://localhost:3001
+content-type: application/json
+
+
+########################
+
